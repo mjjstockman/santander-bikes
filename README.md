@@ -35,3 +35,8 @@ So I can decide whether to use the docking station
 I want to see a bike that has been docked
 ```
 # Domain Model 4
+When release a bike and no bike is docked
+**DockingStation <-- release_bike --> "No docked bikes"**
+
+When a bike is docked
+**DockingStation <-- release_bike --> bike**
