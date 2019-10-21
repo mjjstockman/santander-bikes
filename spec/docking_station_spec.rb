@@ -23,11 +23,11 @@ describe DockingStation do
     end
 
     it 'can dock 20 bikes' do
-      expect { 20.times { docking_station.dock(Bike.new) } }.not_to raise_error
+      expect { DockingStation::DEFAULT_CAPACITY.times { docking_station.dock(Bike.new) } }.not_to raise_error
     end
 
     it 'errors if try to dock over 20 bikes' do
-      20.times { docking_station.dock(Bike.new) }
+      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock(Bike.new) }
       expect { docking_station.dock(Bike.new) }.to raise_error
     end
 
