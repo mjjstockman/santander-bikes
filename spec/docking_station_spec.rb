@@ -22,9 +22,13 @@ describe DockingStation do
       expect(docking_station.release_bike).to eq bike
     end
 
-    it 'has a capacity of 1' do
-      docking_station.dock(Bike.new)
-      expect { docking_station.dock(Bike.new) }.to raise_error('Docking Station full')
+    it 'can dock 20 bikes' do
+      expect{ 20.times { docking_station.dock(Bike.new) }}.not_to raise_error
+    end
+
+    it 'errors if try to dock over 20 bikes' do
+      20.times { docking_station.dock(Bike.new) }
+      expect{ docking_station.dock(Bike.new) }.to raise_error
     end
 
   end
