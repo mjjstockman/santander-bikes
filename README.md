@@ -1,4 +1,4 @@
-# Santander Bikes 
+# Santander Bikes
 An app to emulate all the docking stations, bikes, and infrastructure (repair staff, and so on) for London's Santander Bikes scheme.
 
 # User Story 1
@@ -26,7 +26,7 @@ So I can return bikes I've hired
 I want to dock my bike at the docking station
 ```
 # Domain Model 3
-**DockingStation <-- dock_bike(bike) --> bike**
+**DockingStation <-- dock(bike) --> bike**
 
 # User Story 4
 ```
