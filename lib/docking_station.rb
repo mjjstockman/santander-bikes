@@ -5,12 +5,14 @@ class DockingStation
 
   def release_bike
     # Bike.new
-    raise "No docked bikes" unless @bike
+    raise 'No docked bikes' unless @bike
 
     @bike
   end
 
   def dock(bike)
+    raise 'Docking Station full' if @bike
+
     @bike = bike
   end
 end

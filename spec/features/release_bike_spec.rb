@@ -18,4 +18,12 @@ describe DockingStation do
   it '#release_bike raises error if no docked bike' do
     expect(docking_station.release_bike).to raise_error 'No docked bikes'
   end
+
+  # it 'has a default capacity' do
+  #   bike1 = Bike.new
+  #   docking_station.dock(bike1)
+  #
+  #   bike2 = Bike.new
+  #   docking_station.dock(bike2)
+  # end
 end
