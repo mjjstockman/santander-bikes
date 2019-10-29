@@ -9,6 +9,7 @@ describe DockingStation do
     it 'releases a working bike' do
       bike = Bike.new
       subject.dock(bike)
+
       expect(bike).to be_working
     end
 
@@ -19,17 +20,22 @@ describe DockingStation do
     it 'returns the docked bike' do
       bike = Bike.new
       subject.dock(bike)
+
       expect(docking_station.release_bike).to eq bike
     end
 
-    it 'can dock 20 bikes' do
-      expect { DockingStation::DEFAULT_CAPACITY.times { docking_station.dock(Bike.new) } }.not_to raise_error
+    it 'can dock the capacity number of bikes' do
+      expect { docking_station.capacity.times { docking_station.dock(Bike.new) } }.not_to raise_error
     end
 
-    it 'errors if try to dock over 20 bikes' do
-      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock(Bike.new) }
-      expect { docking_station.dock(Bike.new) }.to raise_error
+    it 'errors if try to dock over capcity numbers of bikes' do
+      docking_station.capacity.times { docking_station.dock(Bike.new) }
+
+      expect { docking_station.dock(Bike.new) }.to raise_error 'Docking Station full'
     end
 
+    it 'is initialized with a defualt capacity' do
+      expect(docking_station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
   end
 end
