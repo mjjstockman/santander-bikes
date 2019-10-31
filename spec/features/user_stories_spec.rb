@@ -1,5 +1,6 @@
 require 'docking_station'
 require 'bike'
+require 'van'
 
 describe 'User Stories' do
   let(:docking_station) { DockingStation.new }
@@ -65,6 +66,13 @@ describe 'User Stories' do
       end
     end
   end
+
+  describe 'Vans' do
+    it 'collects broken bikes' do
+      van = Van.new
+      expect { van.collect(bike) }.not_to raise_error
+    end
+  end
 end
 
 # As a member of the public
@@ -97,3 +105,11 @@ end
 # As a maintainer of the system,
 # So that I can manage broken bikes and not disappoint users,
 # I'd like docking stations to accept returning bikes (broken or not).
+
+# As a maintainer of the system,
+# So that I can manage broken bikes and not disappoint users,
+# I'd like vans to take broken bikes from docking stations and deliver them to garages to be fixed.
+#
+# As a maintainer of the system,
+# So that I can manage broken bikes and not disappoint users,
+# I'd like vans to collect working bikes from garages and distribute them to docking stations.
