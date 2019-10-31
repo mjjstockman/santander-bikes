@@ -12,7 +12,7 @@ class DockingStation
 
   def release_bike
     raise 'No docked bikes' if empty?
-    raise 'No working bikes' if working_bikes.empty?
+    raise 'No working bikes' if no_working_bikes?
 
     bikes.pop
   end
@@ -23,12 +23,12 @@ class DockingStation
     bikes << bike
   end
 
-  def working_bikes
+  def no_working_bikes?
     working_bikes = []
     bikes.each do |bike|
       working_bikes << bike if bike.working?
     end
-    working_bikes
+    working_bikes.empty?
   end
 
   private
