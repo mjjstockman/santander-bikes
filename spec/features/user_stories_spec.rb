@@ -19,6 +19,15 @@ describe 'User Stories' do
         expect { docking_station.release_bike }.to raise_error 'No docked bikes'
       end
     end
+
+    context 'does not release a broken bike' do
+      it 'raises an error' do
+        bike.report_broken
+        docking_station.dock(bike)
+
+        expect { docking_station.release_bike }.to raise_error 'No working bikes'
+      end
+    end
   end
 
   it '#working? returns a boolean' do
