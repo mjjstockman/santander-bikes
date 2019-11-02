@@ -1,4 +1,8 @@
+require_relative 'docking_station'
+require_relative 'bike'
+
 class Van
-  def collect(bike)
+  def collect_broken_bikes(docking_station)
+    docking_station.broken_bikes
   end
 end

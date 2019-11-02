@@ -67,10 +67,17 @@ describe 'User Stories' do
     end
   end
 
-  describe 'Vans' do
+  describe 'Van' do
     it 'collects broken bikes' do
       van = Van.new
-      expect { van.collect(bike) }.not_to raise_error
+      bike = Bike.new
+      broken_bike = Bike.new
+      ds = DockingStation.new
+      broken_bike.report_broken
+      ds.dock(bike)
+      ds.dock(broken_bike)
+
+      expect(van.collect_broken_bikes(ds)).to eq [broken_bike]
     end
   end
 end
